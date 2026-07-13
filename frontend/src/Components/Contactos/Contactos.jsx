@@ -8,8 +8,18 @@ import ContactoCard from "../Contacto Card/ContactoCard";
 const Contactos = () => {
     const [contactos, setContactos] = useState([]);
 
+    const [search, setSearch] = useState("");
+
+    const [filteredContactos, setFilteredContactos] = useState([]);
+
 
     const navigate = useNavigate();
+
+    const handleSearch = (event) => {
+        const value = event.target.value;
+        setSearch(value);
+        setFilteredContactos(contactos.filter(contacto=> (contacto.nombre.toLowerCase() + " " + contacto.apellido.toLowerCase()).includes(value.toLowerCase())))
+    }
 
     useEffect(()=> {
 
@@ -19,6 +29,7 @@ const Contactos = () => {
                 const response = await axios.get("/contactos");
                 console.log(response)
                 setContactos(response.data);
+                setFilteredContactos(response.data);
 
             } catch (error) {
 
@@ -39,13 +50,13 @@ const Contactos = () => {
                 <h1 className={classes.title}>Contactos</h1>
 
                 <div className={classes.inputContainer}>
-                    <input type="text" placeholder="Search" />
+                    <input type="text" placeholder="Search" value={search} onChange={handleSearch}/>
                     <IoSearchOutline className={classes.inputSearch} size={"22px"}/>
                 </div>
                 <hr />
 
                 <div>
-                    { (contactos.length > 0) && contactos.map(contacto => {
+                    { (filteredContactos.length > 0) && filteredContactos.map(contacto => {
                         return (
                             <ContactoCard id={contacto["_id"]} nombre={contacto.nombre} apellido={contacto.apellido} />
                         )

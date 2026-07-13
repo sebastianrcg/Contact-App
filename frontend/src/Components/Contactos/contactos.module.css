@@ -1,7 +1,7 @@
 .container {
     width: 80%;
     margin: 0 auto;
-    background-color: #F5F5F5;
+    background-color: #d8d7d7;
     min-height: 100dvh;
 }
 
@@ -50,7 +50,7 @@
     padding-left: 40px;
     border: none;
     border-radius: 10px;
-    background-color: #cbcbcf;
+    background-color: #969699;
 }
 
 .inputSearch {
