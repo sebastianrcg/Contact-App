@@ -24,7 +24,7 @@ const NuevoContacto = () => {
 
     const enviarContacto = async () =>{
         try {
-            const response = await axios.post("http://localhost:10000/contactos", {...contacto});
+            const response = await axios.post("/contactos", {...contacto});
             navigate("/");
 
 

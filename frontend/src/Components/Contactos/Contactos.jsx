@@ -16,7 +16,7 @@ const Contactos = () => {
         const getContactos = async () =>{
             try {
 
-                const response = await axios.get("http://localhost:10000/contactos");
+                const response = await axios.get("/contactos");
                 console.log(response)
                 setContactos(response.data);
 
