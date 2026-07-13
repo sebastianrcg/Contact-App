@@ -1,0 +1,32 @@
+.card {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 60%;
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 5px;
+
+}
+
+.icons {
+    margin: 10px;
+    color:  #24a0ed;
+    cursor: pointer;
+    background-color: #cbcbcf;
+    /* size: 50px; */
+    border-radius: 5px;
+    padding: 5px;
+    height: 35px;
+    width: 35px;
+}
+
+.icons:hover {
+    background-color: #afafb3;
+}

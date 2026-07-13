@@ -1,0 +1,107 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #F5F5F5;
+    min-height: 100dvh;
+}
+
+.btnContainer {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btnAtras {
+    font-size: 20px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #24a0ed;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnAtras:hover{
+    background-color: #208fd4;
+}
+
+.btnBorrar {
+    font-size: 20px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ed2424;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnBorrar:hover{
+    background-color: #cf1f1f;
+}
+
+.inputContainer{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer div{
+    width: 100%;
+    margin: 0 auto;
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer div + div {
+    margin-top: 40px;
+}
+
+.inputContainer input {
+    padding: 10px;
+    height: 35px;
+    font-size: 20px;
+    /* border: none; */
+}
+
+select {
+    padding: 10px;
+    height: 45px;
+    font-size: 18px;
+}
+
+.saveBtn{
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #24ed3f;
+    
+    font-weight: bold;
+    color: white;
+    
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveBtn:hover {
+    background-color: #1cc433;
+}
