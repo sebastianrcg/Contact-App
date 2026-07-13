@@ -20,7 +20,7 @@ const VerContacto = () => {
 
         const getContactoInfo = async (id) => {
             try {
-                const response = await axios.get(`http://localhost:5000/contactos/${id}`);
+                const response = await axios.get(`http://localhost:10000/contactos/${id}`);
                 setContacto(response.data);
 
             } catch (error) {
