@@ -111,6 +111,10 @@ app.put("/contactos/:id", async (req, res) => {
 
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
