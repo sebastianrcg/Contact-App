@@ -28,8 +28,16 @@ const ContactoSchema = new mongoose.Schema({
     correo: { type: String, required: true },
     sangre: { type: String, enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"], required: true },
     cedula: { type: String, required: true },
-    fechaNacimiento: { type: String, required: true }
-
+    fechaNacimiento: { type: String, required: true },
+    llamadas: {
+        type: [{
+            idContacto: { type: String, required: true },
+            nombreContacto: { type: String, required: true },
+            tiempoLlamada: { type: String, required: true },
+            motivoLlamada: { type: String, default: null }
+        }],
+        default: []
+    }
 });
 
 const Contactos = mongoose.model("Contacto", ContactoSchema);
@@ -88,7 +96,25 @@ app.delete("/contactos/:id", async (req, res) => {
             msg: "Error elimando Contacto."
         });
     }
-})
+});
+
+app.post("/contactos/:id", async(req, res)=>{
+    const id = req.params.id;
+    const {idContacto, tiempoLlamada, motivoLlamada} = req.body;
+
+    try{
+
+        const contacto = await Contactos.findById(idContacto);
+        const nombreContacto = `${contacto.nombre} ${contacto.apellido}`;
+
+        const dataLlamada = await Contactos.findOneAndUpdate({"_id": id}, { $push: {
+            llamadas: {idContacto: idContacto, nombreContacto: nombreContacto, tiempoLlamada: tiempoLlamada, motivoLlamada: motivoLlamada}
+        } })
+
+    } catch (err) {
+
+    }
+});
 
 app.put("/contactos/:id", async (req, res) => {
     const id = req.params.id;
