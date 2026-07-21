@@ -66,7 +66,7 @@ const VerContacto = () => {
         setShowCall(false);
         setSubmittedData(true);
         try {
-            const response = await axios.post(`http://localhost:5000/contactos/${id}`, { idContacto: data.idContacto, tiempoLlamada: formattedTime, motivoLlamada: data.motivoLlamada });
+            const response = await axios.post(`/contactos/${id}`, { idContacto: data.idContacto, tiempoLlamada: formattedTime, motivoLlamada: data.motivoLlamada });
 
 
 
@@ -148,7 +148,7 @@ const VerContacto = () => {
     useEffect(() => {
         const getContactList = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/contactos/");
+                const response = await axios.get("/contactos/");
                 const filteredContacts = response.data.filter(contacto => contacto["_id"] !== id);
                 setListaContactos(filteredContacts);
 
@@ -167,7 +167,7 @@ const VerContacto = () => {
 
         const getContactoInfo = async (id) => {
             try {
-                const response = await axios.get(`http://localhost:5000/contactos/${id}`);
+                const response = await axios.get(`/contactos/${id}`);
                 setContacto(response.data);
 
             } catch (error) {

@@ -21,7 +21,7 @@ const EditarContacto = () => {
     const eliminarContacto = async (id) => {
         if (confirm("Continuar y eliminar contacto?")) {
             try {
-                const response = await axios.delete(`http://localhost:5000/contactos/${id}`);
+                const response = await axios.delete(`/contactos/${id}`);
                 navigate("/");
 
             } catch (error) {
@@ -32,7 +32,7 @@ const EditarContacto = () => {
 
     const actualizarContacto = async (id) =>{
         try {
-            const response = await axios.put(`http://localhost:5000/contactos/${id}`, {...contacto[0]});
+            const response = await axios.put(`/contactos/${id}`, {...contacto[0]});
             navigate(-1);
 
         } catch (error) {
@@ -43,7 +43,7 @@ const EditarContacto = () => {
     useEffect(() => {
         const getContactoInfo = async (id) => {
             try {
-                const response = await axios.get(`http://localhost:5000/contactos/${id}`);
+                const response = await axios.get(`/contactos/${id}`);
                 setContacto(response.data);
 
             } catch (error) {
