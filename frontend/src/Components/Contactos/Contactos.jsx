@@ -21,12 +21,13 @@ const Contactos = () => {
         setFilteredContactos(contactos.filter(contacto=> (contacto.nombre.toLowerCase() + " " + contacto.apellido.toLowerCase()).includes(value.toLowerCase())))
     }
 
+
     useEffect(()=> {
 
         const getContactos = async () =>{
             try {
 
-                const response = await axios.get("/contactos");
+                const response = await axios.get("http://localhost:5000/contactos");
                 console.log(response)
                 setContactos(response.data);
                 setFilteredContactos(response.data);

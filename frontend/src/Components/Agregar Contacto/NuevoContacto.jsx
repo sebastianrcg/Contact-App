@@ -25,7 +25,7 @@ const NuevoContacto = () => {
     const enviarContacto = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("/contactos", { ...contacto });
+            const response = await axios.post("http://localhost:5000/contactos", { ...contacto });
             navigate("/");
 
 
@@ -53,7 +53,7 @@ const NuevoContacto = () => {
                             <input type="email" name="correo" placeholder="Correo" value={contacto.correo} onChange={handleChange} />
                             <input type="text" name="cedula" placeholder="Cedula" value={contacto.cedula} onChange={handleChange} />
 
-                            <input type="date" name="fechaNacimiento" id="" placeholder="Fecha de Nacimiento" value={contacto.fechaNacimiento} onChange={handleChange} />
+                            <input type="date" name="fechaNacimiento" id="" placeholder="Fecha de Nacimiento" value={contacto.fechaNacimiento} onChange={handleChange} title="Fecha de Nacimiento"/>
                             <select name="sangre" value={contacto.sangre} onChange={handleChange}>
                                 <option value="" selected disabled>Tipo de Sangre</option>
                                 <option value="A+">A+</option>

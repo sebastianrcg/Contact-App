@@ -3,6 +3,7 @@
     margin: 0 auto;
     background-color: #d8d7d7;
     min-height: 100dvh;
+    padding-bottom: 30px;
 }
 
 p {
@@ -32,7 +33,7 @@ p {
     align-items: center;
 }
 
-.btnContactos:hover{
+.btnContactos:hover {
     background-color: #208fd4;
 }
 
@@ -50,7 +51,7 @@ p {
     align-items: center;
 }
 
-.btnEditar:hover{
+.btnEditar:hover {
     background-color: #dad621;
 }
 
@@ -58,10 +59,10 @@ p {
     margin: 0 auto;
     margin-top: 20px;
     width: 70%;
-    
+
 }
 
-.header h2{
+.header h2 {
     text-align: center;
     font-size: 40px;
     background-color: #b3b3b6;
@@ -100,7 +101,7 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(185, 184, 184);
     border-radius: 10px;
     color: #208fd4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -117,6 +118,140 @@ p {
     height: 25px;
 }
 
+.iconBtn {
+    cursor: pointer;
+    background-color: white;
+}
+
+.iconBtn:hover {
+    background-color: rgb(208, 252, 208);
+}
+
+.iconBtn:active {
+    transform: translateY(2px);
+}
+
+.callMenu {
+
+    width: 50%;
+
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: blue;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+
+}
+
+.callMenu h3{
+    margin-top: -20px;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+}
+
+.callMenu form{
+    margin-top: 30px;
+}
+
+.callMenu select {
+    display: block;
+    /* margin: 0 auto; */
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.callMenu h4 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.callMenu label{
+    margin-right: 5px;
+    color: black;
+}
+
+input + label {
+    margin-left: 15px;
+}
+
+.callMenu input {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.callMenu textarea {
+    margin-top: 15px;
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    overflow: scroll;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.btnFormContainer button {
+    margin: 10px;
+}
+
+.btnFormContainer {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btnEnviar {
+    font-size: 20px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #24ed3f;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnEnviar:hover{
+    background-color: #1cc433;
+}
+.btnCancelar {
+    font-size: 20px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ed2424;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnCancelar:hover {
+    background-color: #cf1f1f;
+}
+
+.open {
+    max-height: 500px;
+    padding: 35px;
+}
+
 .contactoInfo {
     width: 50%;
     padding: 35px;
@@ -129,6 +264,6 @@ p {
 
 
 
-b{
+b {
     color: #208fd4;
 }

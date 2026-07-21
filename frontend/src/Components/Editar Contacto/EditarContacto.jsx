@@ -21,7 +21,7 @@ const EditarContacto = () => {
     const eliminarContacto = async (id) => {
         if (confirm("Continuar y eliminar contacto?")) {
             try {
-                const response = await axios.delete(`/contactos/${id}`);
+                const response = await axios.delete(`http://localhost:5000/contactos/${id}`);
                 navigate("/");
 
             } catch (error) {
@@ -32,7 +32,7 @@ const EditarContacto = () => {
 
     const actualizarContacto = async (id) =>{
         try {
-            const response = await axios.put(`/contactos/${id}`, {...contacto[0]});
+            const response = await axios.put(`http://localhost:5000/contactos/${id}`, {...contacto[0]});
             navigate(-1);
 
         } catch (error) {
@@ -43,7 +43,7 @@ const EditarContacto = () => {
     useEffect(() => {
         const getContactoInfo = async (id) => {
             try {
-                const response = await axios.get(`/contactos/${id}`);
+                const response = await axios.get(`http://localhost:5000/contactos/${id}`);
                 setContacto(response.data);
 
             } catch (error) {
@@ -76,7 +76,7 @@ const EditarContacto = () => {
                                         <input type="email" name="correo" placeholder="Correo" value={contacto.correo} onChange={handleChange} />
                                         <input type="text" name="cedula" placeholder="Cedula" value={contacto.cedula} onChange={handleChange} />
 
-                                        <input type="date" name="fechaNacimiento" id="" placeholder="Fecha de Nacimiento" value={contacto.fechaNacimiento} onChange={handleChange} />
+                                        <input type="date" name="fechaNacimiento" id="" placeholder="Fecha de Nacimiento" value={contacto.fechaNacimiento} onChange={handleChange} title="Fecha de Nacimiento"/>
                                         <select name="sangre" value={contacto.sangre} onChange={handleChange}>
                                             <option value="" disabled>Tipo de Sangre</option>
                                             <option value="A+">A+</option>
