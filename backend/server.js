@@ -9,7 +9,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static(path.join(__dirname,"../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cors());
@@ -32,6 +32,7 @@ const ContactoSchema = new mongoose.Schema({
         type: [{
             idContacto: { type: String, required: true },
             nombreContacto: { type: String, required: true },
+            numeroContacto: { type: String, required: true },
             tiempoLlamada: { type: String, required: true },
             motivoLlamada: { type: String, default: null }
         }],
@@ -78,18 +79,21 @@ app.post("/contactos", async (req, res) => {
     }
 });
 
-app.post("/contactos/:id", async(req, res)=>{
+app.post("/contactos/:id", async (req, res) => {
     const id = req.params.id;
-    const {idContacto, tiempoLlamada, motivoLlamada} = req.body;
+    const { idContacto, tiempoLlamada, motivoLlamada } = req.body;
 
-    try{
+    try {
 
         const contacto = await Contactos.findById(idContacto);
         const nombreContacto = `${contacto.nombre} ${contacto.apellido}`;
+        const numeroContacto = contacto.numero;
 
-        const dataLlamada = await Contactos.findOneAndUpdate({"_id": id}, { $push: {
-            llamadas: {idContacto: idContacto, nombreContacto: nombreContacto, tiempoLlamada: tiempoLlamada, motivoLlamada: motivoLlamada}
-        } })
+        const dataLlamada = await Contactos.findOneAndUpdate({ "_id": id }, {
+            $push: {
+                llamadas: { idContacto: idContacto, nombreContacto: nombreContacto, numeroContacto: numeroContacto, tiempoLlamada: tiempoLlamada, motivoLlamada: motivoLlamada }
+            }
+        })
 
     } catch (err) {
 
